@@ -24,8 +24,21 @@ public class CalcolaBiglietto {
 		
 		// Calcola il prezzo del biglietto
 		ticketPrice = travelKm * 0.21f;
-		System.out.println("Prezzo del biglietto: " + ticketPrice + "\u20ac");
 		
+		// Applica gli sconti
+		if (passengerAge < 18) {
+			System.out.println("I passeggeri minorenni hanno diritto al 20% di sconto!");
+			ticketPrice = ticketPrice - (ticketPrice * 0.20f);
+			System.out.println("Prezzo del biglietto: " + ticketPrice + "\u20ac");
+		} 
+		else if (passengerAge >= 65) {
+			System.out.println("I passeggeri over65 hanno diritto al 40% di sconto!");
+			ticketPrice = ticketPrice - (ticketPrice * 0.40f);
+			System.out.println("Prezzo del biglietto: " + ticketPrice + "\u20ac");
+		} 
+		else {
+			System.out.println("Prezzo del biglietto: " + ticketPrice + "\u20ac");
+		}
 		scan.close();
 		
 	}
